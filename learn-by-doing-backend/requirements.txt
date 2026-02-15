@@ -1,0 +1,38 @@
+# Core dependencies
+fastapi==0.109.0
+uvicorn[standard]==0.27.0
+pydantic==2.5.3
+pydantic-settings==2.1.0
+
+# Database
+sqlalchemy[asyncio]==2.0.25
+asyncpg==0.29.0
+alembic==1.13.1
+
+# LangGraph - let pip resolve compatible versions
+langgraph
+
+# HTTP Client
+httpx>=0.28.1
+aiohttp==3.9.3
+
+# OpenRouter API (OpenAI-compatible)
+# Using httpx for HTTP requests
+
+# Web Search (DuckDuckGo - free, no API key needed)
+ddgs>=9.10.0
+
+# Utilities
+python-slugify==8.0.3
+python-multipart==0.0.6
+
+# Testing
+pytest
+pytest-asyncio
+pytest-cov
+
+# Development
+black
+isort
+flake8
+mypy
