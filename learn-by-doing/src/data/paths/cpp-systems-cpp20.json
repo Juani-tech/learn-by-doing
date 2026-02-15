@@ -1,0 +1,910 @@
+{
+  "id": "cpp-systems-cpp20",
+  "title": "C++ Systems Programming",
+  "description": "Master systems programming with modern C++20. Learn memory management, concurrency, networking, and build production-ready systems from the ground up.",
+  "version": "C++20",
+  "language": "C++",
+  "area": "Systems Development",
+  "prerequisites": [],
+  "totalTasks": 20,
+  "estimatedHours": 120,
+  "phases": [
+    {
+      "id": "foundations",
+      "title": "Phase 1: Foundations",
+      "description": "Master the core concepts that form the bedrock of C++ systems programming",
+      "order": 1,
+      "tasks": [
+        {
+          "id": "setup-dev-environment",
+          "phaseId": "foundations",
+          "title": "Setup Development Environment",
+          "description": "Configure a professional C++ development environment with compiler, debugger, and build tools",
+          "difficulty": 1,
+          "estimatedHours": 2,
+          "requirements": [
+            "Install a C++ compiler (GCC 11+, Clang 14+, or MSVC 2022+)",
+            "Install and configure a debugger (GDB, LLDB, or Visual Studio Debugger)",
+            "Install CMake (3.20+)",
+            "Set up a code editor/IDE with C++ support (VS Code, CLion, or Visual Studio)",
+            "Create a 'Hello World' program and compile it manually using compiler commands",
+            "Create a CMakeLists.txt to build the same program"
+          ],
+          "acceptanceCriteria": [
+            "Can compile C++20 code from command line",
+            "Can debug a program with breakpoints",
+            "Can build using CMake",
+            "Understand the compilation pipeline (preprocessing, compilation, linking)"
+          ],
+          "prerequisites": [],
+          "resources": [
+            {
+              "title": "C++ Compiler Support",
+              "url": "https://en.cppreference.com/w/cpp/compiler_support",
+              "type": "reference",
+              "description": "C++20 feature support matrix for different compilers"
+            },
+            {
+              "title": "CMake Documentation",
+              "url": "https://cmake.org/cmake/help/latest/",
+              "type": "documentation",
+              "description": "Official CMake documentation"
+            },
+            {
+              "title": "GCC Options",
+              "url": "https://gcc.gnu.org/onlinedocs/gcc/Option-Summary.html",
+              "type": "reference",
+              "description": "Complete GCC compiler options reference"
+            }
+          ]
+        },
+        {
+          "id": "memory-fundamentals",
+          "phaseId": "foundations",
+          "title": "Memory Fundamentals",
+          "description": "Understand how memory works in C++ - stack, heap, and memory layout",
+          "difficulty": 2,
+          "estimatedHours": 6,
+          "requirements": [
+            "Learn about process memory layout (text, data, heap, stack)",
+            "Understand stack allocation and automatic storage duration",
+            "Understand heap allocation with new/delete",
+            "Build a memory layout visualizer that shows addresses of different variables",
+            "Create a program that demonstrates stack overflow",
+            "Create a program that demonstrates heap fragmentation"
+          ],
+          "acceptanceCriteria": [
+            "Can explain the difference between stack and heap",
+            "Can predict memory addresses based on variable types and scopes",
+            "Memory visualizer correctly identifies segment for any variable",
+            "Understand alignment and padding"
+          ],
+          "prerequisites": ["setup-dev-environment"],
+          "resources": [
+            {
+              "title": "Storage Duration",
+              "url": "https://en.cppreference.com/w/cpp/language/storage_duration",
+              "type": "reference",
+              "description": "C++ storage duration specifications"
+            },
+            {
+              "title": "Memory Model",
+              "url": "https://en.cppreference.com/w/cpp/language/memory_model",
+              "type": "reference",
+              "description": "C++ memory model reference"
+            },
+            {
+              "title": "Alignment",
+              "url": "https://en.cppreference.com/w/cpp/language/alignof",
+              "type": "reference",
+              "description": "Alignment specifier documentation"
+            }
+          ]
+        },
+        {
+          "id": "pointers-references",
+          "phaseId": "foundations",
+          "title": "Pointers & References",
+          "description": "Master C++ pointer types, reference semantics, and pointer arithmetic",
+          "difficulty": 2,
+          "estimatedHours": 8,
+          "requirements": [
+            "Implement pointer arithmetic operations",
+            "Build a singly linked list using raw pointers",
+            "Implement a doubly linked list",
+            "Understand reference semantics vs pointers",
+            "Build a function that swaps values using references",
+            "Create a pointer-to-pointer example demonstrating multi-level indirection",
+            "Implement const-correctness with pointers (const T*, T* const, const T* const)"
+          ],
+          "acceptanceCriteria": [
+            "Linked list supports insert, delete, search, and traversal",
+            "No memory leaks (verified with valgrind or similar)",
+            "Understand difference between reference and pointer",
+            "Can explain const correctness"
+          ],
+          "prerequisites": ["memory-fundamentals"],
+          "resources": [
+            {
+              "title": "Pointer Declaration",
+              "url": "https://en.cppreference.com/w/cpp/language/pointer",
+              "type": "reference",
+              "description": "C++ pointer declaration and operations"
+            },
+            {
+              "title": "Reference Declaration",
+              "url": "https://en.cppreference.com/w/cpp/language/reference",
+              "type": "reference",
+              "description": "C++ reference semantics"
+            },
+            {
+              "title": "Const Qualifier",
+              "url": "https://en.cppreference.com/w/cpp/language/cv",
+              "type": "reference",
+              "description": "Const/volatile qualifiers"
+            }
+          ]
+        },
+        {
+          "id": "raii-principle",
+          "phaseId": "foundations",
+          "title": "RAII Principle",
+          "description": "Learn Resource Acquisition Is Initialization - the cornerstone of C++ resource management",
+          "difficulty": 3,
+          "estimatedHours": 6,
+          "requirements": [
+            "Understand the RAII idiom",
+            "Build a RAII wrapper for file handles (FILE*)",
+            "Build a RAII wrapper for dynamic memory",
+            "Implement a scope guard class",
+            "Create a RAII wrapper for mutex locks",
+            "Understand exception safety guarantees"
+          ],
+          "acceptanceCriteria": [
+            "All resources properly released even with exceptions",
+            "No resource leaks in any code path",
+            "Exception-safe code",
+            "Can explain basic, strong, and no-throw guarantees"
+          ],
+          "prerequisites": ["pointers-references"],
+          "resources": [
+            {
+              "title": "RAII",
+              "url": "https://en.cppreference.com/w/cpp/language/raii",
+              "type": "reference",
+              "description": "Resource Acquisition Is Initialization"
+            },
+            {
+              "title": "Destructors",
+              "url": "https://en.cppreference.com/w/cpp/language/destructor",
+              "type": "reference",
+              "description": "Destructor semantics and usage"
+            },
+            {
+              "title": "Exception Safety",
+              "url": "https://en.cppreference.com/w/cpp/language/exceptions",
+              "type": "reference",
+              "description": "Exception handling and safety guarantees"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "language-core",
+      "title": "Phase 2: Language Core",
+      "description": "Master C++ language features essential for systems programming",
+      "order": 2,
+      "tasks": [
+        {
+          "id": "classes-oop",
+          "phaseId": "language-core",
+          "title": "Classes & OOP",
+          "description": "Build robust object-oriented designs with C++ classes",
+          "difficulty": 3,
+          "estimatedHours": 8,
+          "requirements": [
+            "Design a Shape hierarchy with abstract base class",
+            "Implement Circle, Rectangle, Triangle classes",
+            "Use virtual functions for polymorphic behavior",
+            "Implement proper constructors, destructors, copy/move operations",
+            "Build a drawing system that handles any Shape polymorphically",
+            "Understand slicing problem and prevent it"
+          ],
+          "acceptanceCriteria": [
+            "All shapes correctly calculate area and perimeter",
+            "Polymorphic collection stores different shape types",
+            "Proper use of virtual destructors",
+            "Rule of 5 correctly implemented"
+          ],
+          "prerequisites": ["raii-principle"],
+          "resources": [
+            {
+              "title": "Classes",
+              "url": "https://en.cppreference.com/w/cpp/language/classes",
+              "type": "reference",
+              "description": "C++ class definition and members"
+            },
+            {
+              "title": "Virtual Functions",
+              "url": "https://en.cppreference.com/w/cpp/language/virtual",
+              "type": "reference",
+              "description": "Virtual function specifier"
+            },
+            {
+              "title": "Special Member Functions",
+              "url": "https://en.cppreference.com/w/cpp/language/members",
+              "type": "reference",
+              "description": "Constructors, destructors, assignment operators"
+            }
+          ]
+        },
+        {
+          "id": "templates-basics",
+          "phaseId": "language-core",
+          "title": "Templates Basics",
+          "description": "Learn generic programming with C++ templates",
+          "difficulty": 3,
+          "estimatedHours": 8,
+          "requirements": [
+            "Build a generic Stack class template",
+            "Implement a function template for finding max element",
+            "Create a template class for a fixed-size array",
+            "Understand template instantiation",
+            "Build a generic sorting function",
+            "Learn about template specialization"
+          ],
+          "acceptanceCriteria": [
+            "Stack works with any type",
+            "No code duplication in template instantiation",
+            "Template errors are readable",
+            "Specialization works correctly for specific types"
+          ],
+          "prerequisites": ["classes-oop"],
+          "resources": [
+            {
+              "title": "Templates",
+              "url": "https://en.cppreference.com/w/cpp/language/templates",
+              "type": "reference",
+              "description": "C++ template documentation"
+            },
+            {
+              "title": "Class Template",
+              "url": "https://en.cppreference.com/w/cpp/language/class_template",
+              "type": "reference",
+              "description": "Class template specifics"
+            },
+            {
+              "title": "Function Template",
+              "url": "https://en.cppreference.com/w/cpp/language/function_template",
+              "type": "reference",
+              "description": "Function template specifics"
+            }
+          ]
+        },
+        {
+          "id": "smart-pointers",
+          "phaseId": "language-core",
+          "title": "Smart Pointers",
+          "description": "Modern memory management with smart pointers",
+          "difficulty": 3,
+          "estimatedHours": 6,
+          "requirements": [
+            "Understand unique_ptr ownership semantics",
+            "Implement a graph structure using shared_ptr",
+            "Use weak_ptr to break circular references",
+            "Build a custom deleter example",
+            "Convert legacy code to use smart pointers",
+            "Understand make_unique vs new"
+          ],
+          "acceptanceCriteria": [
+            "Graph correctly manages node ownership",
+            "No memory leaks",
+            "No circular reference memory leaks",
+            "Custom deleter properly handles special resources"
+          ],
+          "prerequisites": ["templates-basics"],
+          "resources": [
+            {
+              "title": "unique_ptr",
+              "url": "https://en.cppreference.com/w/cpp/memory/unique_ptr",
+              "type": "reference",
+              "description": "Exclusive-ownership smart pointer"
+            },
+            {
+              "title": "shared_ptr",
+              "url": "https://en.cppreference.com/w/cpp/memory/shared_ptr",
+              "type": "reference",
+              "description": "Shared-ownership smart pointer"
+            },
+            {
+              "title": "weak_ptr",
+              "url": "https://en.cppreference.com/w/cpp/memory/weak_ptr",
+              "type": "reference",
+              "description": "Non-owning observer smart pointer"
+            }
+          ]
+        },
+        {
+          "id": "stl-containers",
+          "phaseId": "language-core",
+          "title": "STL Containers",
+          "description": "Master the Standard Template Library containers",
+          "difficulty": 3,
+          "estimatedHours": 6,
+          "requirements": [
+            "Build a word frequency analyzer using unordered_map",
+            "Implement a task queue using deque",
+            "Use vector for dynamic arrays",
+            "Build a priority queue for scheduling",
+            "Understand container complexity guarantees",
+            "Use structured bindings with containers"
+          ],
+          "acceptanceCriteria": [
+            "Word frequency analyzer handles large texts efficiently",
+            "Correct container chosen for each use case",
+            "Uses C++20 features where appropriate",
+            "Efficient memory usage"
+          ],
+          "prerequisites": ["smart-pointers"],
+          "resources": [
+            {
+              "title": "Container Library",
+              "url": "https://en.cppreference.com/w/cpp/container",
+              "type": "reference",
+              "description": "STL container overview"
+            },
+            {
+              "title": "vector",
+              "url": "https://en.cppreference.com/w/cpp/container/vector",
+              "type": "reference",
+              "description": "Dynamic array container"
+            },
+            {
+              "title": "unordered_map",
+              "url": "https://en.cppreference.com/w/cpp/container/unordered_map",
+              "type": "reference",
+              "description": "Hash map container"
+            }
+          ]
+        },
+        {
+          "id": "error-handling",
+          "phaseId": "language-core",
+          "title": "Error Handling",
+          "description": "Robust error handling with exceptions and error codes",
+          "difficulty": 4,
+          "estimatedHours": 8,
+          "requirements": [
+            "Build a configuration parser with custom exception hierarchy",
+            "Implement error codes using std::error_code",
+            "Use noexcept appropriately",
+            "Build a Result<T,E> type",
+            "Handle exceptions at appropriate levels",
+            "Implement stack unwinding demo"
+          ],
+          "acceptanceCriteria": [
+            "All error paths properly handled",
+            "Exception hierarchy is logical",
+            "No resource leaks during exceptions",
+            "Error messages are informative"
+          ],
+          "prerequisites": ["stl-containers"],
+          "resources": [
+            {
+              "title": "Exceptions",
+              "url": "https://en.cppreference.com/w/cpp/language/exceptions",
+              "type": "reference",
+              "description": "Exception handling mechanism"
+            },
+            {
+              "title": "error_code",
+              "url": "https://en.cppreference.com/w/cpp/error/error_code",
+              "type": "reference",
+              "description": "Error code class"
+            },
+            {
+              "title": "noexcept",
+              "url": "https://en.cppreference.com/w/cpp/language/noexcept",
+              "type": "reference",
+              "description": "Noexcept specifier"
+            }
+          ]
+        },
+        {
+          "id": "move-semantics",
+          "phaseId": "language-core",
+          "title": "Move Semantics",
+          "description": "Modern C++ performance with move semantics and perfect forwarding",
+          "difficulty": 4,
+          "estimatedHours": 8,
+          "requirements": [
+            "Understand rvalue references",
+            "Implement move constructor and move assignment",
+            "Build a custom String class with move support",
+            "Use std::move correctly",
+            "Implement perfect forwarding with templates",
+            "Understand copy elision and RVO"
+          ],
+          "acceptanceCriteria": [
+            "String class has no unnecessary copies",
+            "Move operations leave object in valid state",
+            "Perfect forwarding preserves value categories",
+            "Understand when moves happen automatically"
+          ],
+          "prerequisites": ["error-handling"],
+          "resources": [
+            {
+              "title": "Value Categories",
+              "url": "https://en.cppreference.com/w/cpp/language/value_category",
+              "type": "reference",
+              "description": "Value categories (lvalue, rvalue, etc.)"
+            },
+            {
+              "title": "Move Constructors",
+              "url": "https://en.cppreference.com/w/cpp/language/move_constructor",
+              "type": "reference",
+              "description": "Move constructor documentation"
+            },
+            {
+              "title": "Perfect Forwarding",
+              "url": "https://en.cppreference.com/w/cpp/utility/forward",
+              "type": "reference",
+              "description": "std::forward documentation"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "systems-programming",
+      "title": "Phase 3: Systems Programming",
+      "description": "Apply your knowledge to real systems programming tasks",
+      "order": 3,
+      "tasks": [
+        {
+          "id": "file-io-filesystem",
+          "phaseId": "systems-programming",
+          "title": "File I/O & Filesystem",
+          "description": "Work with files and directories using modern C++",
+          "difficulty": 3,
+          "estimatedHours": 6,
+          "requirements": [
+            "Build a file search utility",
+            "Implement recursive directory traversal",
+            "Use regex for pattern matching",
+            "Handle binary and text files",
+            "Copy files with progress reporting",
+            "Use filesystem::path correctly"
+          ],
+          "acceptanceCriteria": [
+            "Search utility finds files by name and content",
+            "Handles large directories efficiently",
+            "Proper error handling for permission issues",
+            "Cross-platform path handling"
+          ],
+          "prerequisites": ["move-semantics"],
+          "resources": [
+            {
+              "title": "Filesystem Library",
+              "url": "https://en.cppreference.com/w/cpp/filesystem",
+              "type": "reference",
+              "description": "C++17 filesystem library"
+            },
+            {
+              "title": "File Streams",
+              "url": "https://en.cppreference.com/w/cpp/io/basic_fstream",
+              "type": "reference",
+              "description": "File stream classes"
+            },
+            {
+              "title": "Regular Expressions",
+              "url": "https://en.cppreference.com/w/cpp/regex",
+              "type": "reference",
+              "description": "Regular expressions library"
+            }
+          ]
+        },
+        {
+          "id": "network-programming",
+          "phaseId": "systems-programming",
+          "title": "Network Programming",
+          "description": "Build networked applications with sockets",
+          "difficulty": 4,
+          "estimatedHours": 10,
+          "requirements": [
+            "Build an HTTP client from scratch using BSD sockets",
+            "Implement TCP socket wrapper classes",
+            "Handle HTTP request/response parsing",
+            "Support HTTPS (TLS/SSL)",
+            "Implement connection pooling",
+            "Handle network errors gracefully"
+          ],
+          "acceptanceCriteria": [
+            "Can fetch web pages via HTTP/1.1",
+            "Supports HTTPS connections",
+            "Handles timeouts and errors",
+            "Clean RAII-based socket management"
+          ],
+          "prerequisites": ["file-io-filesystem"],
+          "resources": [
+            {
+              "title": "Berkeley Sockets",
+              "url": "https://man7.org/linux/man-pages/man2/socket.2.html",
+              "type": "reference",
+              "description": "Linux socket system calls"
+            },
+            {
+              "title": "OpenSSL Documentation",
+              "url": "https://www.openssl.org/docs/",
+              "type": "documentation",
+              "description": "OpenSSL library documentation"
+            },
+            {
+              "title": "HTTP/1.1 Specification",
+              "url": "https://datatracker.ietf.org/doc/html/rfc2616",
+              "type": "reference",
+              "description": "HTTP/1.1 RFC specification"
+            }
+          ]
+        },
+        {
+          "id": "advanced-memory",
+          "phaseId": "systems-programming",
+          "title": "Advanced Memory Management",
+          "description": "Custom allocators and memory pools for performance",
+          "difficulty": 4,
+          "estimatedHours": 8,
+          "requirements": [
+            "Build a memory pool allocator",
+            "Implement a stack allocator",
+            "Create a custom STL allocator",
+            "Use placement new",
+            "Implement aligned memory allocation",
+            "Benchmark against standard allocator"
+          ],
+          "acceptanceCriteria": [
+            "Memory pool outperforms standard allocator",
+            "No memory leaks",
+            "Proper alignment handling",
+            "Works with STL containers"
+          ],
+          "prerequisites": ["network-programming"],
+          "resources": [
+            {
+              "title": "Allocator Traits",
+              "url": "https://en.cppreference.com/w/cpp/memory/allocator_traits",
+              "type": "reference",
+              "description": "STL allocator interface"
+            },
+            {
+              "title": "Placement New",
+              "url": "https://en.cppreference.com/w/cpp/language/new",
+              "type": "reference",
+              "description": "Placement new syntax"
+            },
+            {
+              "title": "Alignas",
+              "url": "https://en.cppreference.com/w/cpp/language/alignas",
+              "type": "reference",
+              "description": "Alignment specifier"
+            }
+          ]
+        },
+        {
+          "id": "concurrency",
+          "phaseId": "systems-programming",
+          "title": "Concurrency",
+          "description": "Multi-threading and synchronization primitives",
+          "difficulty": 4,
+          "estimatedHours": 10,
+          "requirements": [
+            "Build a thread-safe queue",
+            "Implement producer-consumer pattern",
+            "Use mutexes and condition variables",
+            "Implement a thread pool",
+            "Use atomic operations",
+            "Handle thread synchronization scenarios"
+          ],
+          "acceptanceCriteria": [
+            "No data races",
+            "Thread-safe queue handles concurrent access",
+            "Thread pool manages worker threads efficiently",
+            "Deadlock-free synchronization"
+          ],
+          "prerequisites": ["advanced-memory"],
+          "resources": [
+            {
+              "title": "Thread Support",
+              "url": "https://en.cppreference.com/w/cpp/thread",
+              "type": "reference",
+              "description": "Thread library overview"
+            },
+            {
+              "title": "Mutex",
+              "url": "https://en.cppreference.com/w/cpp/thread/mutex",
+              "type": "reference",
+              "description": "Mutex synchronization primitive"
+            },
+            {
+              "title": "Atomic Operations",
+              "url": "https://en.cppreference.com/w/cpp/atomic",
+              "type": "reference",
+              "description": "Atomic operations library"
+            }
+          ]
+        },
+        {
+          "id": "async-programming",
+          "phaseId": "systems-programming",
+          "title": "Async Programming",
+          "description": "Asynchronous programming with futures and promises",
+          "difficulty": 4,
+          "estimatedHours": 8,
+          "requirements": [
+            "Build parallel file processor using async",
+            "Implement task cancellation",
+            "Use promises and futures",
+            "Build an async HTTP client",
+            "Handle async errors",
+            "Implement continuations"
+          ],
+          "acceptanceCriteria": [
+            "Files processed in parallel",
+            "Can cancel long-running operations",
+            "Proper error propagation",
+            "Efficient thread utilization"
+          ],
+          "prerequisites": ["concurrency"],
+          "resources": [
+            {
+              "title": "Async",
+              "url": "https://en.cppreference.com/w/cpp/thread/async",
+              "type": "reference",
+              "description": "Async function for async execution"
+            },
+            {
+              "title": "Future",
+              "url": "https://en.cppreference.com/w/cpp/thread/future",
+              "type": "reference",
+              "description": "Future class for async results"
+            },
+            {
+              "title": "Promise",
+              "url": "https://en.cppreference.com/w/cpp/thread/promise",
+              "type": "reference",
+              "description": "Promise class for setting async results"
+            }
+          ]
+        },
+        {
+          "id": "build-systems",
+          "phaseId": "systems-programming",
+          "title": "Build Systems",
+          "description": "Master CMake and cross-platform builds",
+          "difficulty": 3,
+          "estimatedHours": 6,
+          "requirements": [
+            "Create a multi-library CMake project",
+            "Implement cross-platform build configuration",
+            "Use target properties and dependencies",
+            "Build with different configurations (Debug/Release)",
+            "Create install targets",
+            "Use CMake presets"
+          ],
+          "acceptanceCriteria": [
+            "Builds on Windows, Linux, macOS",
+            "Proper separation of interface/implementation",
+            "Working install target",
+            "CI-ready configuration"
+          ],
+          "prerequisites": ["async-programming"],
+          "resources": [
+            {
+              "title": "CMake Tutorial",
+              "url": "https://cmake.org/cmake/help/latest/guide/tutorial/",
+              "type": "documentation",
+              "description": "Official CMake tutorial"
+            },
+            {
+              "title": "CMake Commands",
+              "url": "https://cmake.org/cmake/help/latest/manual/cmake-commands.7.html",
+              "type": "reference",
+              "description": "CMake command reference"
+            },
+            {
+              "title": "CMake Presets",
+              "url": "https://cmake.org/cmake/help/latest/manual/cmake-presets.7.html",
+              "type": "reference",
+              "description": "CMake presets documentation"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "production",
+      "title": "Phase 4: Production",
+      "description": "Polish your skills for production-ready development",
+      "order": 4,
+      "tasks": [
+        {
+          "id": "modern-cpp-features",
+          "phaseId": "production",
+          "title": "Modern C++ Features",
+          "description": "Leverage C++20 features for cleaner, safer code",
+          "difficulty": 4,
+          "estimatedHours": 8,
+          "requirements": [
+            "Use concepts to constrain templates",
+            "Implement a pipeline using ranges",
+            "Use coroutines for generators",
+            "Apply structured bindings",
+            "Use designated initializers",
+            "Implement consteval/constinit examples"
+          ],
+          "acceptanceCriteria": [
+            "Concepts provide clear error messages",
+            "Ranges pipeline is lazy and efficient",
+            "Coroutines properly handle suspension",
+            "Modern features used appropriately"
+          ],
+          "prerequisites": ["build-systems"],
+          "resources": [
+            {
+              "title": "Concepts",
+              "url": "https://en.cppreference.com/w/cpp/concepts",
+              "type": "reference",
+              "description": "C++20 concepts library"
+            },
+            {
+              "title": "Ranges",
+              "url": "https://en.cppreference.com/w/cpp/ranges",
+              "type": "reference",
+              "description": "C++20 ranges library"
+            },
+            {
+              "title": "Coroutines",
+              "url": "https://en.cppreference.com/w/cpp/language/coroutines",
+              "type": "reference",
+              "description": "C++20 coroutines"
+            }
+          ]
+        },
+        {
+          "id": "testing",
+          "phaseId": "production",
+          "title": "Testing",
+          "description": "Comprehensive testing with Google Test and Mock",
+          "difficulty": 3,
+          "estimatedHours": 8,
+          "requirements": [
+            "Set up Google Test in your project",
+            "Write unit tests for previous projects",
+            "Implement parameterized tests",
+            "Use test fixtures",
+            "Mock dependencies with Google Mock",
+            "Achieve good test coverage"
+          ],
+          "acceptanceCriteria": [
+            "All critical paths tested",
+            "Tests run in CI",
+            "Mocked tests isolate components",
+            "Clear test naming and organization"
+          ],
+          "prerequisites": ["modern-cpp-features"],
+          "resources": [
+            {
+              "title": "Google Test",
+              "url": "https://google.github.io/googletest/",
+              "type": "documentation",
+              "description": "Google Test documentation"
+            },
+            {
+              "title": "Google Mock",
+              "url": "https://google.github.io/googletest/gmock_cook_book.html",
+              "type": "documentation",
+              "description": "Google Mock cookbook"
+            },
+            {
+              "title": "Unit Testing",
+              "url": "https://en.cppreference.com/w/cpp/utility/program/abort",
+              "type": "reference",
+              "description": "Program utilities for testing"
+            }
+          ]
+        },
+        {
+          "id": "performance",
+          "phaseId": "production",
+          "title": "Performance",
+          "description": "Profiling and optimization techniques",
+          "difficulty": 5,
+          "estimatedHours": 8,
+          "requirements": [
+            "Profile a previous project with perf/VTune",
+            "Identify and fix bottlenecks",
+            "Optimize cache utilization",
+            "Use SIMD where appropriate",
+            "Implement compile-time computation",
+            "Measure improvements quantitatively"
+          ],
+          "acceptanceCriteria": [
+            "Clear performance improvements measured",
+            "Profile data backs up optimizations",
+            "No premature optimization",
+            "Maintainable code after optimization"
+          ],
+          "prerequisites": ["testing"],
+          "resources": [
+            {
+              "title": "Optimization",
+              "url": "https://en.cppreference.com/w/cpp/language/attributes/likely",
+              "type": "reference",
+              "description": "Likely/unlikely attributes"
+            },
+            {
+              "title": "Constexpr",
+              "url": "https://en.cppreference.com/w/cpp/language/constexpr",
+              "type": "reference",
+              "description": "Compile-time execution"
+            },
+            {
+              "title": "Profiler Guidelines",
+              "url": "https://en.cppreference.com/w/cpp/algorithm/execution_policy_tag_t",
+              "type": "reference",
+              "description": "Execution policies"
+            }
+          ]
+        },
+        {
+          "id": "capstone-project",
+          "phaseId": "production",
+          "title": "Capstone: Key-Value Store",
+          "description": "Build a production-ready in-memory key-value store with networking",
+          "difficulty": 5,
+          "estimatedHours": 20,
+          "requirements": [
+            "Implement in-memory key-value storage",
+            "Add TCP server with custom protocol",
+            "Support concurrent client connections",
+            "Implement persistence to disk",
+            "Add configuration file support",
+            "Write comprehensive tests",
+            "Profile and optimize performance",
+            "Create proper build system"
+          ],
+          "acceptanceCriteria": [
+            "Handles concurrent connections safely",
+            "Sub-millisecond response times",
+            "Data persists across restarts",
+            "Configurable via config file",
+            ">80% test coverage",
+            "Clean build on all platforms"
+          ],
+          "prerequisites": ["performance"],
+          "resources": [
+            {
+              "title": "Redis Protocol",
+              "url": "https://redis.io/docs/reference/protocol-spec/",
+              "type": "reference",
+              "description": "Redis protocol specification"
+            },
+            {
+              "title": "C++ Best Practices",
+              "url": "https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines",
+              "type": "reference",
+              "description": "C++ Core Guidelines"
+            },
+            {
+              "title": "Systems Design",
+              "url": "https://en.cppreference.com/w/cpp/thread/latch",
+              "type": "reference",
+              "description": "Synchronization primitives"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
